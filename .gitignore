@@ -1,7 +1,9 @@
-    
 #OS junk files
 [Tt]humbs.db
 *.DS_Store
+
+#Linux installer file
+*.run
 
 #Visual Studio files
 *.pidb
@@ -29,6 +31,7 @@
 *.sdf
 ipch/
 obj/
+vs/
 [Bb]in
 [Dd]ebug*/
 [Rr]elease*/
@@ -39,9 +42,6 @@ _ReSharper*/
 *.resharper
 [Tt]est[Rr]esult*
 
-#Project files
-[Bb]uild/
-
 #Subversion files
 .svn
 
@@ -50,10 +50,24 @@ _ReSharper*/
 
 #monodroid private beta
 monodroid*.msi
-/CompiledContent/Android/IgnoreMe.dll
-/CompiledContent/OSX/IgnoreMe.dll
-/CompiledContent/Windows8/IgnoreMe.dll
-/CompiledContent/Windows/IgnoreMe.dll
-*.cachefile
-*.dll
+
+#Unix temporary files
+*~
+
+# Output docs
+Documentation/Output/
+
+# Protobuild Generated Files
+MonoGame.Framework.Content.Pipeline/*.csproj
+MonoGame.Framework/*.csproj
+Tools/2MGFX/*.csproj
+Tools/MGCB/*.csproj
+Tools/Pipeline/*.csproj
+ThirdParty/Lidgren.Network/*.csproj
+Test/*.csproj
+!Test/MonoGame.Test.XNA.csproj
+/*.sln
+*.speccache
+*.ncrunchproject
+*.ncrunchsolution
 .vs/
