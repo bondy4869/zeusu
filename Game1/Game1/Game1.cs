@@ -17,7 +17,7 @@ namespace Game1
         // フィールド（このクラスの情報を記述）
         private GraphicsDeviceManager graphicsDeviceManager;//グラフィックスデバイスを管理するオブジェクト
         private SpriteBatch spriteBatch;//画像をスクリーン上に描画するためのオブジェクト
-
+        
         /// <summary>
         /// コンストラクタ
         /// （new で実体生成された際、一番最初に一回呼び出される）
@@ -28,6 +28,8 @@ namespace Game1
             graphicsDeviceManager = new GraphicsDeviceManager(this);
             //コンテンツデータ（リソースデータ）のルートフォルダは"Contentに設定
             Content.RootDirectory = "Content";
+            
+
         }
 
         /// <summary>
@@ -51,6 +53,9 @@ namespace Game1
         {
             // 画像を描画するために、スプライトバッチオブジェクトの実体生成
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            texture = Content.Load<Texture2D>("Block");
+            texture = Content.Load<Texture2D>("Block01");
+
 
             // この下にロジックを記述
 
