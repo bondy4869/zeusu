@@ -16,8 +16,8 @@ namespace Game1
     {
         // フィールド（このクラスの情報を記述）
         private GraphicsDeviceManager graphicsDeviceManager;//グラフィックスデバイスを管理するオブジェクト
-        private SpriteBatch spriteBatch;//画像をスクリーン上に描画するためのオブジェクト
-
+        //private SpriteBatch spriteBatch;//画像をスクリーン上に描画するためのオブジェクト
+        private Renderer renderer;
         /// <summary>
         /// コンストラクタ
         /// （new で実体生成された際、一番最初に一回呼び出される）
@@ -36,7 +36,7 @@ namespace Game1
         protected override void Initialize()
         {
             // この下にロジックを記述
-
+            renderer = new Renderer(Content, GraphicsDevice);
 
 
             // この上にロジックを記述
@@ -50,10 +50,11 @@ namespace Game1
         protected override void LoadContent()
         {
             // 画像を描画するために、スプライトバッチオブジェクトの実体生成
-            spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            // spriteBatch = new SpriteBatch(GraphicsDevice);
+            renderer.LoadContent("Block");
+            renderer.LoadContent("Block01");
             // この下にロジックを記述
-
+            
 
             // この上にロジックを記述
         }
@@ -100,7 +101,9 @@ namespace Game1
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // この下に描画ロジックを記述
-
+            renderer.Begin();
+           // renderer.Draw(renderer);
+            renderer.End();
 
             //この上にロジックを記述
             base.Draw(gameTime); // 親クラスの更新処理呼び出し。絶対に消すな！！
