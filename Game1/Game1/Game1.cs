@@ -53,6 +53,7 @@ namespace Game1
             // spriteBatch = new SpriteBatch(GraphicsDevice);
             renderer.LoadContent("Block");
             renderer.LoadContent("Block01");
+            renderer.LoadContent("Tihou");
             // この下にロジックを記述
             
 
