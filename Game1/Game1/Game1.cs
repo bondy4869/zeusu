@@ -54,6 +54,7 @@ namespace Game1
             renderer.LoadContent("Block");
             renderer.LoadContent("Block01");
             renderer.LoadContent("Tihou");
+            renderer.LoadContent("BlackBullet");
             // この下にロジックを記述
             
 
