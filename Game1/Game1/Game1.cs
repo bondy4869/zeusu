@@ -53,10 +53,8 @@ namespace Game1
             // spriteBatch = new SpriteBatch(GraphicsDevice);
             renderer.LoadContent("Block");
             renderer.LoadContent("Block01");
-            renderer.LoadContent("Taihou");
-            renderer.LoadContent("BlackBulleti");
-            renderer.LoadContent("Var");
-            
+            renderer.LoadContent("Tihou");
+            renderer.LoadContent("BlackBullet");
             // この下にロジックを記述
             
 
