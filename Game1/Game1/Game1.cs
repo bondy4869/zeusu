@@ -16,8 +16,16 @@ namespace Game1
     {
         // フィールド（このクラスの情報を記述）
         private GraphicsDeviceManager graphicsDeviceManager;//グラフィックスデバイスを管理するオブジェクト
-        //private SpriteBatch spriteBatch;//画像をスクリーン上に描画するためのオブジェクト
-        private Renderer renderer;
+        private SpriteBatch spriteBatch;//画像をスクリーン上に描画するためのオブジェクト
+        private Texture2D taihouTexture;
+        private Vector2 taihouPosition;
+        private Texture2D blackBulletTexture;
+        private Vector2 blackBulletPosition;
+        private Texture2D blockTexture;
+        private Vector2 blockPosition;
+        private Texture2D block01Texture;
+        private Texture2D varTexture;
+
         /// <summary>
         /// コンストラクタ
         /// （new で実体生成された際、一番最初に一回呼び出される）
@@ -28,6 +36,9 @@ namespace Game1
             graphicsDeviceManager = new GraphicsDeviceManager(this);
             //コンテンツデータ（リソースデータ）のルートフォルダは"Contentに設定
             Content.RootDirectory = "Content";
+            graphicsDeviceManager.PreferredBackBufferWidth = 1000;
+            graphicsDeviceManager.PreferredBackBufferHeight = 1000;
+
         }
 
         /// <summary>
@@ -36,9 +47,9 @@ namespace Game1
         protected override void Initialize()
         {
             // この下にロジックを記述
-            renderer = new Renderer(Content, GraphicsDevice);
-
-
+            taihouPosition = new Vector2(0,0);
+            blackBulletPosition = new Vector2(100, 100);
+            blockPosition = new Vector2(300, 300);
             // この上にロジックを記述
             base.Initialize();// 親クラスの初期化処理呼び出し。絶対に消すな！！
         }
@@ -50,16 +61,25 @@ namespace Game1
         protected override void LoadContent()
         {
             // 画像を描画するために、スプライトバッチオブジェクトの実体生成
+
             // spriteBatch = new SpriteBatch(GraphicsDevice);
-            renderer.LoadContent("Block");
-            renderer.LoadContent("Block01");
-            renderer.LoadContent("Taihou");
-            renderer.LoadContent("BlackBullet");
-            renderer.LoadContent("Var");
-            
-            // この下にロジックを記述
+            //renderer.LoadContent("Block");
+            //renderer.LoadContent("Block01");
+            //renderer.LoadContent("Taihou");
+            //renderer.LoadContent("BlackBullet");
+            //renderer.LoadContent("Var");
             
 
+           spriteBatch = new SpriteBatch(GraphicsDevice);//newで居場所を作ってあげる
+
+
+            // この下にロジックを記述
+
+            taihouTexture = Content.Load<Texture2D>("Taihou");//Loadでnewの代わりを果たす
+            blackBulletTexture = Content.Load<Texture2D>("BlackBulleti");
+            blockTexture = Content.Load<Texture2D>("Block");
+            block01Texture = Content.Load<Texture2D>("Block01");
+            varTexture = Content.Load<Texture2D>("Var");
             // この上にロジックを記述
         }
 
@@ -105,10 +125,12 @@ namespace Game1
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // この下に描画ロジックを記述
-            renderer.Begin();
-           // renderer.Draw(renderer);
-            renderer.End();
-
+            spriteBatch.Begin();
+            spriteBatch.Draw(taihouTexture,taihouPosition,Color.White);
+            spriteBatch.Draw(blackBulletTexture, blackBulletPosition, Color.White);
+            spriteBatch.Draw(blockTexture, blockPosition, Color.White);
+            spriteBatch.End();
+           
             //この上にロジックを記述
             base.Draw(gameTime); // 親クラスの更新処理呼び出し。絶対に消すな！！
         }
